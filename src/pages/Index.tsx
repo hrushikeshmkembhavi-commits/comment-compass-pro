@@ -21,7 +21,7 @@ export default function Index() {
           <div className="h-8 w-8 rounded-lg bg-gradient-primary glow flex items-center justify-center">
             <Activity className="h-4 w-4 text-primary-foreground" />
           </div>
-          <span className="font-display text-xl font-semibold">PulseRetail</span>
+          <span className="font-display text-xl font-semibold">TrendSage AI</span>
         </div>
         <div className="flex gap-3">
           <Link to="/auth"><Button variant="ghost">Sign in</Button></Link>
@@ -39,7 +39,7 @@ export default function Index() {
           <span className="gradient-text">One brutal dashboard.</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-          PulseRetail unifies feedback from Flipkart, Meesho, Amazon and beyond — then turns
+          TrendSage AI unifies feedback from Flipkart, Meesho, Amazon and beyond — then turns
           it into sentiment graphs, spam-free insights and prescriptive AI recommendations.
         </p>
         <div className="flex gap-3 justify-center">
@@ -63,7 +63,7 @@ export default function Index() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        Built with Lovable · PulseRetail © {new Date().getFullYear()}
+        Built with Lovable · TrendSage AI © {new Date().getFullYear()}
       </footer>
     </div>
   );

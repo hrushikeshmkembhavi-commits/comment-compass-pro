@@ -41,7 +41,7 @@ export function DashboardLayout() {
               <div className="h-8 w-8 rounded-lg bg-gradient-primary glow flex items-center justify-center shrink-0">
                 <Activity className="h-4 w-4 text-primary-foreground" />
               </div>
-              <span className="font-display font-semibold truncate">PulseRetail</span>
+              <span className="font-display font-semibold truncate">TrendSage AI</span>
             </div>
             <SidebarGroup>
               <SidebarGroupContent>

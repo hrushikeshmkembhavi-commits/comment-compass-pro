@@ -68,7 +68,7 @@ export default function Auth() {
           <div className="h-9 w-9 rounded-lg bg-gradient-primary glow flex items-center justify-center">
             <Activity className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="font-display text-2xl font-semibold">PulseRetail</span>
+          <span className="font-display text-2xl font-semibold">TrendSage AI</span>
         </Link>
 
         <div className="glass rounded-2xl p-8">
@@ -103,7 +103,7 @@ export default function Auth() {
             {mode === "signup" ? (
               <>Already have an account?{" "}<button onClick={() => setMode("signin")} className="text-primary hover:underline">Sign in</button></>
             ) : (
-              <>New to PulseRetail?{" "}<button onClick={() => setMode("signup")} className="text-primary hover:underline">Create one</button></>
+              <>New to TrendSage AI?{" "}<button onClick={() => setMode("signup")} className="text-primary hover:underline">Create one</button></>
             )}
           </div>
         </div>

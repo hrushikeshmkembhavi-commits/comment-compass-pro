@@ -45,7 +45,7 @@ Deno.serve(async (req) => {
         model: "google/gemini-3-flash-preview",
         stream: true,
         messages: [
-          { role: "system", content: `You are PulseRetail Co-Pilot, an AI advisor for retail business owners. Be concise, friendly, and actionable. Suggest concrete marketing & operational improvements based on customer feedback. Use markdown for clarity.\n\n${ctx}` },
+          { role: "system", content: `You are TrendSage AI Co-Pilot, an AI advisor for retail business owners. Be concise, friendly, and actionable. Suggest concrete marketing & operational improvements based on customer feedback. Use markdown for clarity.\n\n${ctx}` },
           ...messages,
         ],
       }),

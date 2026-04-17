@@ -145,7 +145,7 @@ function ReceiptCard({ rec }: { rec: Recommendation }) {
   return (
     <div className="border border-dashed border-border rounded-lg p-4 bg-background/40 font-mono text-xs">
       <div className="text-center border-b border-dashed border-border pb-2 mb-3">
-        <div className="font-display font-bold text-base">PULSERETAIL</div>
+        <div className="font-display font-bold text-base">TRENDSAGE AI</div>
         <div className="text-[10px] text-muted-foreground">action receipt · {formatDistanceToNow(new Date(rec.created_at), { addSuffix: true })}</div>
       </div>
       <div className="space-y-2">

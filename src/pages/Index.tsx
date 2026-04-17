@@ -62,9 +62,7 @@ export default function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        Built with Lovable · TrendSage AI © {new Date().getFullYear()}
-      </footer>
+     
     </div>
   );
 }

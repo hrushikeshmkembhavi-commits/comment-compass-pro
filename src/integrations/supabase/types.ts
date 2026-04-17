@@ -14,16 +14,314 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      ai_insights: {
+        Row: {
+          comment_count: number | null
+          created_at: string
+          id: string
+          negative_highlights: Json | null
+          positive_highlights: Json | null
+          summary: string
+          top_themes: Json | null
+          user_id: string
+        }
+        Insert: {
+          comment_count?: number | null
+          created_at?: string
+          id?: string
+          negative_highlights?: Json | null
+          positive_highlights?: Json | null
+          summary: string
+          top_themes?: Json | null
+          user_id: string
+        }
+        Update: {
+          comment_count?: number | null
+          created_at?: string
+          id?: string
+          negative_highlights?: Json | null
+          positive_highlights?: Json | null
+          summary?: string
+          top_themes?: Json | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      alerts: {
+        Row: {
+          comment_id: string | null
+          created_at: string
+          id: string
+          message: string | null
+          read: boolean
+          title: string
+          type: Database["public"]["Enums"]["alert_type"]
+          user_id: string
+        }
+        Insert: {
+          comment_id?: string | null
+          created_at?: string
+          id?: string
+          message?: string | null
+          read?: boolean
+          title: string
+          type: Database["public"]["Enums"]["alert_type"]
+          user_id: string
+        }
+        Update: {
+          comment_id?: string | null
+          created_at?: string
+          id?: string
+          message?: string | null
+          read?: boolean
+          title?: string
+          type?: Database["public"]["Enums"]["alert_type"]
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "alerts_comment_id_fkey"
+            columns: ["comment_id"]
+            isOneToOne: false
+            referencedRelation: "comments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      chat_messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      comments: {
+        Row: {
+          analyzed: boolean
+          author: string | null
+          created_at: string
+          english_text: string | null
+          id: string
+          is_spam: boolean
+          language: string | null
+          original_text: string
+          platform: string
+          product: string | null
+          rating: number | null
+          raw_payload: Json | null
+          sentiment_label: Database["public"]["Enums"]["sentiment_label"] | null
+          sentiment_score: number | null
+          source_id: string | null
+          spam_reason: string | null
+          themes: string[] | null
+          user_id: string
+        }
+        Insert: {
+          analyzed?: boolean
+          author?: string | null
+          created_at?: string
+          english_text?: string | null
+          id?: string
+          is_spam?: boolean
+          language?: string | null
+          original_text: string
+          platform?: string
+          product?: string | null
+          rating?: number | null
+          raw_payload?: Json | null
+          sentiment_label?:
+            | Database["public"]["Enums"]["sentiment_label"]
+            | null
+          sentiment_score?: number | null
+          source_id?: string | null
+          spam_reason?: string | null
+          themes?: string[] | null
+          user_id: string
+        }
+        Update: {
+          analyzed?: boolean
+          author?: string | null
+          created_at?: string
+          english_text?: string | null
+          id?: string
+          is_spam?: boolean
+          language?: string | null
+          original_text?: string
+          platform?: string
+          product?: string | null
+          rating?: number | null
+          raw_payload?: Json | null
+          sentiment_label?:
+            | Database["public"]["Enums"]["sentiment_label"]
+            | null
+          sentiment_score?: number | null
+          source_id?: string | null
+          spam_reason?: string | null
+          themes?: string[] | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "comments_source_id_fkey"
+            columns: ["source_id"]
+            isOneToOne: false
+            referencedRelation: "sources"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          business_name: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          business_name?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          business_name?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      recommendations: {
+        Row: {
+          created_at: string
+          diagnosis: string | null
+          id: string
+          next_action: string | null
+          priority: string | null
+          situation: string | null
+          steps: Json | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          diagnosis?: string | null
+          id?: string
+          next_action?: string | null
+          priority?: string | null
+          situation?: string | null
+          steps?: Json | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          diagnosis?: string | null
+          id?: string
+          next_action?: string | null
+          priority?: string | null
+          situation?: string | null
+          steps?: Json | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      sources: {
+        Row: {
+          active: boolean
+          created_at: string
+          id: string
+          ingest_token: string
+          name: string
+          user_id: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          id?: string
+          ingest_token?: string
+          name: string
+          user_id: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          id?: string
+          ingest_token?: string
+          name?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      alert_type:
+        | "new_comment"
+        | "negative_spike"
+        | "spam_burst"
+        | "recommendation_ready"
+      app_role: "admin" | "owner"
+      sentiment_label: "positive" | "neutral" | "negative"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +448,15 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      alert_type: [
+        "new_comment",
+        "negative_spike",
+        "spam_burst",
+        "recommendation_ready",
+      ],
+      app_role: ["admin", "owner"],
+      sentiment_label: ["positive", "neutral", "negative"],
+    },
   },
 } as const
